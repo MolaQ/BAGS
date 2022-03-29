@@ -2,15 +2,13 @@
 
 namespace App\Http\Livewire\Admin\Teams;
 
+use App\Http\Livewire\Admin\AdminComponent;
 use App\Models\Team;
 use Illuminate\Support\Facades\Validator;
-use Livewire\Component;
-use Livewire\WithPagination;
 
-class ListTeams extends Component
+
+class ListTeams extends AdminComponent
 {
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
 
     public $state = [];
 
@@ -41,7 +39,7 @@ class ListTeams extends Component
 
         $this->dispatchBrowserEvent('hide-form');
         session()->flash('message', 'Zespół dodany pomyślnie');
-   
+
     }
 
 public function editTeam(Team $team)
@@ -50,8 +48,8 @@ public function editTeam(Team $team)
 
     $this->team = $team;
 
-    $this->state = $team->toArray(); 
-    
+    $this->state = $team->toArray();
+
     $this->dispatchBrowserEvent('show-form');
 }
 
@@ -62,7 +60,7 @@ public function updateTeam()
         'classname' => 'required',
         'group' => 'required',
     ])->validate();
- 
+
     $this->team->update($validatedData);
     $this->dispatchBrowserEvent('hide-form');
     session()->flash('message', 'Dane zespołu zaktualizowane pomyślnie');
