@@ -17,3 +17,10 @@ w bladezie:
          @endif
 
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+git init
+git add .
+git commit -m "BAGS - bazy | aplikacje | grafika  strony"
+git branch -M main
+git remote add origin https://github.com/MolaQ/BAGS.git
+git push -u origin main
