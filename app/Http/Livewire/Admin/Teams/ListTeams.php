@@ -5,9 +5,13 @@ namespace App\Http\Livewire\Admin\Teams;
 use App\Models\Team;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ListTeams extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
     public $state = [];
 
     public $team;
@@ -81,7 +85,7 @@ session()->flash('message', 'Zespół usunięty pomyślnie');
 
     public function render()
     {
-        $teams = Team::latest()->paginate();
+        $teams = Team::latest()->paginate(2);
         return view('livewire.admin.teams.list-teams', [
             'teams' => $teams,
             ]);
