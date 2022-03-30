@@ -68,12 +68,12 @@ public function confirmTeamRemoval($teamId)
     $this->idUserToDelete = $teamId;
     $this->dispatchBrowserEvent('show-delete-modal');
 }
-public function deleteTeam()
-{
-$team = Team::findOrFail($this->idUserToDelete);
-$team->delete();
-$this->dispatchBrowserEvent('hide-delete-modal',['message' => 'Zespół został usunięty']);
-}
+    public function deleteTeam()
+    {
+    $team = Team::findOrFail($this->idUserToDelete);
+    $team->delete();
+    $this->dispatchBrowserEvent('hide-delete-modal',['message' => 'Zespół został usunięty']);
+    }
 
 
 

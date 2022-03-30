@@ -39,7 +39,7 @@ class ListStages extends Component
 
     public function updateStage()
     {
-        // dd($this->state);
+        dd($this->state);
         $validatedData = Validator::make($this->state,[
             'category' => 'required',
             'title' => 'required',
@@ -69,11 +69,20 @@ class ListStages extends Component
 
     }
 
-    public function confirmStageRemoval($stageId)
+    public function confirmStageRemoval($teamId)
     {
-        dd("confirmStageremoval");
+        $this->idStageToDelete = $teamId;
+        $this->dispatchBrowserEvent('show-delete-modal');
 
     }
+
+    public function deleteStage()
+    {
+    $stage = Stage::findOrFail($this->idStageToDelete);
+    $stage->delete();
+    $this->dispatchBrowserEvent('hide-delete-modal',['message' => 'Zadanie zostało usunięte']);
+    }
+
     public function render()
     {
         $stages = Stage::all();
