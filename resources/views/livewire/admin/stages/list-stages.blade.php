@@ -183,7 +183,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="bg-danger modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Usunąć zespół? </h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Usunąć zadanie? </h5>
                     <button id='closeModal' type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -192,7 +192,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
                             class="fa fa-times mr-1"></i> Anuluj</button>
-                    <button type="button" wire:click.prevent="deleteTeam" class="btn btn-danger"><i
+                    <button type="button" wire:click.prevent="deleteStage" class="btn btn-danger"><i
                             class="fa fa-trash mr-1"></i>Usuń</button>
 
                 </div>

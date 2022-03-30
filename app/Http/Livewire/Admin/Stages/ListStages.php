@@ -25,25 +25,41 @@ class ListStages extends Component
     }
 
 
-    public function editStage()
+    public function editStage(Stage $stage)
     {
-        dd("editStage");
+        $this->showEditForm = true;
+
+        $this->stage = $stage;
+
+        $this->state = $stage->toArray();
+
+        $this->dispatchBrowserEvent('show-form');
 
     }
 
     public function updateStage()
     {
-        dd('updateStage');
+        // dd($this->state);
+        $validatedData = Validator::make($this->state,[
+            'category' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'maxpoints' => 'required | integer',
+            'stagestate' => 'required',
+        ])->validate();
+
+        $this->stage->update($validatedData);
+        $this->dispatchBrowserEvent('hide-form', ['message' => 'Zadanie zaktualizowane pomyślnie']);
 
     }
 
     public function createStage()
     {
-        $validatedData = Validator::make($this->state,[
+          $validatedData = Validator::make($this->state,[
             'category' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'maxpoints' => 'required | integer | gte:0',
+            'maxpoints' => 'required | integer',
             'stagestate' => 'required',
         ])->validate();
 
