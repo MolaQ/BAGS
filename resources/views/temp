@@ -8,7 +8,7 @@ w bladezie:
 
             @if(session()->has('message'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong> <i class="fa fa-check-circle mr-1"></i> Sukces!</strong> 
+                <strong> <i class="fa fa-check-circle mr-1"></i> Sukces!</strong>
                 {{ session('message') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -24,3 +24,12 @@ git commit -m "BAGS - bazy | aplikacje | grafika  strony"
 git branch -M main
 git remote add origin https://github.com/MolaQ/BAGS.git
 git push -u origin main
+
+|||||||||||||||||||||| UKRYWANIE FORMY I ALERT ||||||||||||||||||||||||||||
+    window.addEventListener('hide-form', event =>{
+        $('#form').modal('hide');
+        $(".alert").delay(4000).slideUp(200, function() {
+        $(this).alert('close');
+        });
+    })
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

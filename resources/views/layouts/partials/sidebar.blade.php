@@ -27,15 +27,7 @@
                 <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->is('admin/dashboard') ? 'active' :'' }}">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
-                    Dashboard
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('admin.users') }}" class="nav-link {{ request()->is('admin/users') ? 'active' :'' }}">
-                  <i class="nav-icon fas fa-user"></i>
-                  <p>
-                    Użytkownicy
+                    BAGSPanel
                   </p>
                 </a>
               </li>
@@ -47,6 +39,23 @@
                   </p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.stages') }}" class="nav-link {{ request()->is('admin/stages') ? 'active' :'' }}">
+                    <i class="nav-icon fas fa-clipboard-list"></i>
+                  <p>
+                    Zadania
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.users') }}" class="nav-link {{ request()->is('admin/users') ? 'active' :'' }}">
+                  <i class="nav-icon fas fa-user"></i>
+                  <p>
+                    Użytkownicy
+                  </p>
+                </a>
+              </li>
+
 
         </ul>
       </nav>
