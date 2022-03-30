@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('stages', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category');
+            $table->string('category');
             $table->string('title');
             $table->string('description');
-            $table->string('maxpoints');
-            $table->unsignedBigInteger('stagestate');
+            $table->integer('maxpoints')->default(0);
+            $table->string('stagestate');
             $table->timestamps();
         });
     }

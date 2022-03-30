@@ -40,11 +40,11 @@ class ListStages extends Component
     public function createStage()
     {
         $validatedData = Validator::make($this->state,[
-            'category' => 'required | integer',
+            'category' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'maxpoints' => 'required | integer',
-            'stagestate' => 'required | integer',
+            'maxpoints' => 'required | integer | gte:0',
+            'stagestate' => 'required',
         ])->validate();
 
         Stage::create($validatedData);

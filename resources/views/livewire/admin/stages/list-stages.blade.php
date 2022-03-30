@@ -92,24 +92,13 @@
                     <button id='closeModal' type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form autocomplete="off" wire:submit.prevent="{{ $showEditForm ? 'updateStage' : 'createStage' }}">
-                        <div class="mb-3">
-                            <label for="category" class="form-label">Kategoria</label>
-                            <input type="text" wire:model.defer="state.category"
-                                class="form-control @error('category') is-invalid @enderror" id="category"
-                                aria-describedby="categoryHelp" placeholder="Wybierz kategorię">
-                            @error('category')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
+                    <form class="row g-3" autocomplete="off" wire:submit.prevent="{{ $showEditForm ? 'updateStage' : 'createStage' }}">
 
-                        <div class="mb-3">
+                        <div class="col-sm-8 mb-2">
                             <label for="title" class="form-label">Zadanie</label>
                             <input type="text" wire:model.defer="state.title"
                                 class="form-control @error('title') is-invalid @enderror" id="title"
-                                aria-describedby="titleHelp" placeholder="Podaj tyuł zadania">
+                                aria-describedby="titleHelp" placeholder="Podaj tytuł zadania">
                             @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -117,7 +106,20 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
+                        <div class="col-sm-4 mb-2">
+                            <label for="maxpoints" class="form-label">Max. Punktów</label>
+                            <input type="text" wire:model.defer="state.maxpoints"
+                                class="form-control  @error('maxpoints') is-invalid @enderror" id="maxpoints"
+                                aria-describedby="maxpointsHelp" placeholder="Określ maksymalną ilość punktów za zadanie">
+                            @error('maxpoints')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+
+                        <div class="col-sm-12 mb-2">
                             <label for="description" class="form-label">Opis zadania</label>
                             <input type="text" wire:model.defer="state.description"
                                 class="form-control @error('description') is-invalid @enderror" id="description"
@@ -129,23 +131,26 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label for="maxpoints" class="form-label">Maksymalna ilość punktów</label>
-                            <input type="text" wire:model.defer="state.maxpoints"
-                                class="form-control  @error('maxpoints') is-invalid @enderror" id="maxpoints"
-                                aria-describedby="maxpointsHelp" placeholder="Określ maksymalną ilość punktów za zadanie">
-                            @error('maxpoints')
+                        <div class="col-sm-6 mb-2">
+                            <label for="category" class="form-label">Kategoria</label>
+                            <select class="form-control form-select" wire:model.defer="state.category" aria-label="Default select example">
+                                <option value="kahoot.jpg">Kahoot</option>
+                                <option value="moodle.jpg">Moodle</option>
+                            </select>
+                            @error('category')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                             @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label for="stagestate" class="form-label">Stan zadania</label>
-                            <input type="text" wire:model.defer="state.stagestate"
-                                class="form-control  @error('stagestate') is-invalid @enderror" id="stagestate"
-                                aria-describedby="stagestateHelp" placeholder="Stan zadania">
+                        <div class="col-sm-6 mb-2">
+                            <label for="stagestate" class="form-label">Kategoria</label>
+                            <select class="form-control form-select" wire:model.defer="state.stagestate" aria-label="Default select example">
+                                <option value="Zakończone">Zakończone</option>
+                                <option value="W trakcie">W trakcie</option>
+                                <option value="Oczekujące">Oczekujące</option>
+                            </select>
                             @error('stagestate')
                             <div class="invalid-feedback">
                                 {{ $message }}
