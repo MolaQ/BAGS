@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('maxpoints');
-            $table->unsignedBigInteger('state');
+            $table->unsignedBigInteger('stagestate');
             $table->timestamps();
         });
     }

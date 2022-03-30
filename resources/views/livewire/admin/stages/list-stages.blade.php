@@ -25,7 +25,7 @@
                 <div class="col-lg-12">
                     <div class="d-flex justify-content-end">
                         <button wire:click.prevent="addNew" class="btn btn-success mb-2"><i
-                                class="fa fa-plus-circle mr-2"></i> Dodaj Zespół</button>
+                                class="fa fa-plus-circle mr-2"></i> Dodaj zadanie</button>
                     </div>
 
                     <div class="card">
@@ -50,7 +50,7 @@
                                         <td scope="col">{{ $stage->title }}</td>
                                         <td scope="col">{{ $stage->description }}</td>
                                         <td scope="col">{{ $stage->maxpoints }}</td>
-                                        <td scope="col">{{ $stage->state }}</td>
+                                        <td scope="col">{{ $stage->stagestate }}</td>
                                         <td scope="col">
                                             <a href="" class="btn btn-primary" wire:click.prevent="editStage({{ $stage }})"><i class="fa fa-edit"></i></a>
                                             <a href="" class="btn btn-danger" wire:click.prevent="confirmStageRemoval({{ $stage->id }})"><i class="fa fa-trash"></i></a>
@@ -83,49 +83,76 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
                         @if($showEditForm)
-                        <span>Edycja zespołu</span>
+                        <span>Edycja zadania </span>
                         @else
-                        <span>Dodawanie nowego zespołu </span>
+                        <span>Dodawanie nowego zadania </span>
                         @endif
                     </h5>
 
                     <button id='closeModal' type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form autocomplete="off" wire:submit.prevent="{{ $showEditForm ? 'updateTeam' : 'createTeam' }}">
+                    <form autocomplete="off" wire:submit.prevent="{{ $showEditForm ? 'updateStage' : 'createStage' }}">
                         <div class="mb-3">
-                            <label for="teammembers" class="form-label">Zespół</label>
-                            <input type="text" wire:model.defer="state.teammembers"
-                                class="form-control @error('teammembers') is-invalid @enderror" id="teammembers"
-                                aria-describedby="teammembersHelp" placeholder="Wpisz członków zespołu">
-                            @error('teammembers')
+                            <label for="category" class="form-label">Kategoria</label>
+                            <input type="text" wire:model.defer="state.category"
+                                class="form-control @error('category') is-invalid @enderror" id="category"
+                                aria-describedby="categoryHelp" placeholder="Wybierz kategorię">
+                            @error('category')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
-                            <label for="classname" class="form-label">Klasa</label>
-                            <input type="text" wire:model.defer="state.classname"
-                                class="form-control @error('classname') is-invalid @enderror" id="classname"
-                                aria-describedby="classnameHelp" placeholder="Podaj klasę">
-                            @error('classname')
+                            <label for="title" class="form-label">Zadanie</label>
+                            <input type="text" wire:model.defer="state.title"
+                                class="form-control @error('title') is-invalid @enderror" id="title"
+                                aria-describedby="titleHelp" placeholder="Podaj tyuł zadania">
+                            @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
-                            <label for="group" class="form-label">Grupa</label>
-                            <input type="text" wire:model.defer="state.group"
-                                class="form-control  @error('group') is-invalid @enderror" id="group"
-                                aria-describedby="groupHelp" placeholder="Określ grupę">
-                            @error('group')
+                            <label for="description" class="form-label">Opis zadania</label>
+                            <input type="text" wire:model.defer="state.description"
+                                class="form-control @error('description') is-invalid @enderror" id="description"
+                                aria-describedby="descriptionHelp" placeholder="Podaj opis zadania">
+                            @error('description')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                             @enderror
                         </div>
+
+                        <div class="mb-3">
+                            <label for="maxpoints" class="form-label">Maksymalna ilość punktów</label>
+                            <input type="text" wire:model.defer="state.maxpoints"
+                                class="form-control  @error('maxpoints') is-invalid @enderror" id="maxpoints"
+                                aria-describedby="maxpointsHelp" placeholder="Określ maksymalną ilość punktów za zadanie">
+                            @error('maxpoints')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="stagestate" class="form-label">Stan zadania</label>
+                            <input type="text" wire:model.defer="state.stagestate"
+                                class="form-control  @error('stagestate') is-invalid @enderror" id="stagestate"
+                                aria-describedby="stagestateHelp" placeholder="Stan zadania">
+                            @error('stagestate')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
 
 
                 </div>

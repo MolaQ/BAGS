@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Stage extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'category',
+        'title',
+        'description',
+        'maxpoints',
+        'stagestate',
+    ];
 }
