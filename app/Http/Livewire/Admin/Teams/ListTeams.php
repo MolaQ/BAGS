@@ -28,7 +28,6 @@ class ListTeams extends AdminComponent
 
     public function createTeam()
     {
-        //dd($this->state);
         $validatedData = Validator::make($this->state,[
             'teammembers' => 'required',
             'classname' => 'required',
@@ -38,7 +37,6 @@ class ListTeams extends AdminComponent
         Team::create($validatedData);
 
         $this->dispatchBrowserEvent('hide-form', ['message' => 'Zespół dodany pomyślnie']);
-        //session()->flash('message', 'Zespół dodany pomyślnie');
 
     }
 
