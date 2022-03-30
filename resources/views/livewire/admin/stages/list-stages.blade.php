@@ -47,10 +47,10 @@
                                     <tr>
                                         <td scope="col">{{ $loop->iteration }}</td>
                                         <td scope="col">{{ $stage->category }}</td>
-                                        <td scope="col">Quiz na platformie moodle</td>
-                                        <td scope="col">Test więdzy na platformie moodle</td>
-                                        <td scope="col">10</td>
-                                        <td scope="col">Zakończony</td>
+                                        <td scope="col">{{ $stage->title }}</td>
+                                        <td scope="col">{{ $stage->description }}</td>
+                                        <td scope="col">{{ $stage->maxpoints }}</td>
+                                        <td scope="col">{{ $stage->state }}</td>
                                         <td scope="col">
                                             <a href="" class="btn btn-primary" wire:click.prevent="editStage({{ $stage }})"><i class="fa fa-edit"></i></a>
                                             <a href="" class="btn btn-danger" wire:click.prevent="confirmStageRemoval({{ $stage->id }})"><i class="fa fa-trash"></i></a>

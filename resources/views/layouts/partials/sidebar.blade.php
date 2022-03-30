@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{ asset('backend/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+<span class="brand-text font-weight-light">BAGS 2022</span>
     </a>
 
     <!-- Sidebar -->
@@ -25,7 +25,7 @@
                with font-awesome or any other icon font library -->
                <li class="nav-item">
                 <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->is('admin/dashboard') ? 'active' :'' }}">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="nav-icon fas fa-play"></i>
                   <p>
                     BAGSPanel
                   </p>
@@ -51,7 +51,15 @@
                 <a href="{{ route('admin.users') }}" class="nav-link {{ request()->is('admin/users') ? 'active' :'' }}">
                   <i class="nav-icon fas fa-user"></i>
                   <p>
-                    Użytkownicy
+                    Organizatorzy
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link {{ request()->is('admin/settings') ? 'active' :'' }}">
+                  <i class="nav-icon fas fa-gear"></i>
+                  <p>
+                    Ustawienia
                   </p>
                 </a>
               </li>
