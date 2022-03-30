@@ -37,8 +37,8 @@ class ListTeams extends AdminComponent
 
         Team::create($validatedData);
 
-        $this->dispatchBrowserEvent('hide-form');
-        session()->flash('message', 'Zespół dodany pomyślnie');
+        $this->dispatchBrowserEvent('hide-form', ['message' => 'Zespół dodany pomyślnie']);
+        //session()->flash('message', 'Zespół dodany pomyślnie');
 
     }
 
@@ -62,8 +62,7 @@ public function updateTeam()
     ])->validate();
 
     $this->team->update($validatedData);
-    $this->dispatchBrowserEvent('hide-form');
-    session()->flash('message', 'Dane zespołu zaktualizowane pomyślnie');
+    $this->dispatchBrowserEvent('hide-form', ['message' => 'Zespół zaktualizowany pomyślnie']);
 }
 
 public function confirmTeamRemoval($teamId)
@@ -75,8 +74,7 @@ public function deleteTeam()
 {
 $team = Team::findOrFail($this->idUserToDelete);
 $team->delete();
-$this->dispatchBrowserEvent('hide-delete-modal');
-session()->flash('message', 'Zespół usunięty pomyślnie');
+$this->dispatchBrowserEvent('hide-delete-modal',['message' => 'Zespół został usunięty']);
 }
 
 

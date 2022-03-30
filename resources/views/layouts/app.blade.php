@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
- 
+  <!-- Toastr style -->
+  <link rel="stylesheet" href="{{ asset('backend/plugins/toastr/toastr.min.css') }}">
+
   <livewire:styles />
 </head>
 <body class="hold-transition sidebar-mini">
@@ -53,9 +55,28 @@
 <script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('backend/dist/js/adminlte.min.js') }}"></script>
+<!-- Toastr  -->
+<script src="{{ asset('backend/plugins/toastr/toastr.min.js') }}"></script>
 
+<script>
+    $(document).ready(function(){
+        toastr.options = {
+                            "progressBar": true,
+                            "positionClass": "toast-bottom-right"
+                        }
 
+        window.addEventListener('hide-form', event =>{
+        $('#form').modal('hide');
+        toastr.success(event.detail.message, 'Operacja wykonana!');
+        })
 
+        window.addEventListener('hide-delete-modal', event =>{
+        $('#delete-modal').modal('hide');
+        toastr.success(event.detail.message, 'Operacja wykonana!');
+        })
+
+    });
+</script>
 <script>
     window.addEventListener('show-form', event =>{
         $('#form').modal('show');
@@ -63,18 +84,7 @@
     window.addEventListener('show-delete-modal', event =>{
         $('#delete-modal').modal('show');
     })
-    window.addEventListener('hide-form', event =>{
-        $('#form').modal('hide');
-        $(".alert").delay(4000).slideUp(200, function() {
-        $(this).alert('close');
-        });
-    })
-    window.addEventListener('hide-delete-modal', event =>{
-        $('#delete-modal').modal('hide');
-        $(".alert").delay(4000).slideUp(200, function() {
-        $(this).alert('close');
-        });
-    })
+
 </script>
 <livewire:scripts />
 </body>
