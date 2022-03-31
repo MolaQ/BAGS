@@ -134,6 +134,7 @@
                         <div class="col-sm-6 mb-2">
                             <label for="category" class="form-label">Kategoria</label>
                             <select class="form-control form-select" wire:model.defer="state.category" aria-label="Default select example">
+                                <option selected>Wybierz kategorię</option>
                                 <option value="kahoot.jpg">Kahoot</option>
                                 <option value="moodle.jpg">Moodle</option>
                             </select>
@@ -147,6 +148,7 @@
                         <div class="col-sm-6 mb-2">
                             <label for="stagestate" class="form-label">Kategoria</label>
                             <select class="form-control form-select" wire:model.defer="state.stagestate" aria-label="Default select example">
+                                <option selected>Określ stan zadania</option>
                                 <option value="Zakończone">Zakończone</option>
                                 <option value="W trakcie">W trakcie</option>
                                 <option value="Oczekujące">Oczekujące</option>

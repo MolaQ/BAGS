@@ -98,35 +98,46 @@
                     <button id='closeModal' type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form autocomplete="off" wire:submit.prevent="{{ $showEditForm ? 'updateTeam' : 'createTeam' }}">
-                        <div class="mb-3">
+                    <form class="row g-3" autocomplete="off" wire:submit.prevent="{{ $showEditForm ? 'updateTeam' : 'createTeam' }}">
+                        <div class="col-sm-12 mb-3">
                             <label for="teammembers" class="form-label">Zespół</label>
                             <input type="text" wire:model.defer="state.teammembers" class="form-control @error('teammembers') is-invalid @enderror" id="teammembers" aria-describedby="teammembersHelp" placeholder="Wpisz członków zespołu">
                             @error('teammembers')
+                            <div class="invalid-feedback">
+                                Musisz podać członków zespołu
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <label for="classname" class="form-label">Wybierz klasę</label>
+                            <select class="form-control form-select" wire:model.defer="state.classname" aria-label="Default select example">
+                                <option selected>-- Klasa --</option>
+                                <option value="3Kg">Klasa 3Kg</option>
+                                <option value="3R">Klasa 3R</option>
+                                <option value="4I">Klasa 4I</option>
+                                <option value="4K">Klasa 4K</option>
+                                <option value="4R">Klasa 4R</option>
+                            </select>
+                            @error('classname')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                             @enderror
                         </div>
-                        <div class="mb-3">
-                            <label for="classname" class="form-label">Klasa</label>
-                            <input type="text" wire:model.defer="state.classname" class="form-control @error('classname') is-invalid @enderror"
-                                id="classname" aria-describedby="classnameHelp" placeholder="Podaj klasę">
-                                @error('classname')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                        </div>
-                        <div class="mb-3">
+                        <div class="col-sm-6 mb-3">
+
                             <label for="group" class="form-label">Grupa</label>
-                            <input type="text" wire:model.defer="state.group" class="form-control  @error('group') is-invalid @enderror" id="group"
-                                aria-describedby="groupHelp" placeholder="Określ grupę">
-                                @error('group')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                            <select class="form-control form-select" wire:model.defer="state.group" aria-label="Default select example">
+                                <option selected>-- Klasa --</option>
+                                <option value="Grupa I">Grupa I</option>
+                                <option value="Grupa II">Grupa II</option>
+                            </select>
+                            @error('group')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+
                         </div>
 
 

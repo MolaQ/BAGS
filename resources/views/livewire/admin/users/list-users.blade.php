@@ -4,12 +4,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Użytkownicy</h1>
+                    <h1 class="m-0">Organizatorzy</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Panel administracyjny</a></li>
-                        <li class="breadcrumb-item active">Użytkownicy</li>
+                        <li class="breadcrumb-item active">Organizatorzy</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,7 +25,7 @@
                     <div class="d-flex justify-content-end">
                         <button wire:click.prevent="addNew" class="btn btn-success mb-2"><i
                                 class="fa fa-plus-circle mr-2"></i> Dodaj
-                            użytkownika</button>
+                            Organizatora</button>
                     </div>
 
                     <div class="card">
