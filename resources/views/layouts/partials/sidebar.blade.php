@@ -47,6 +47,16 @@
                   </p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="{{ route('admin.results') }}" class="nav-link {{ request()->is('admin/results') ? 'active' :'' }}">
+                <i class="nav-icon fas fa-table"></i>
+                  <p>
+                    Wyniki
+                  </p>
+                </a>
+              </li>
+
               <li class="nav-item">
                 <a href="{{ route('admin.users') }}" class="nav-link {{ request()->is('admin/users') ? 'active' :'' }}">
                   <i class="nav-icon fas fa-user"></i>
