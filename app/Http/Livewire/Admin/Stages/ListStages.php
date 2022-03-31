@@ -39,7 +39,6 @@ class ListStages extends Component
 
     public function updateStage()
     {
-        dd($this->state);
         $validatedData = Validator::make($this->state,[
             'category' => 'required',
             'title' => 'required',
