@@ -75,7 +75,12 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
                         <span>
-                            Dodawanie punktacji do zadania
+
+                            Dodawanie punktacji do zadania:
+                            @if($zadanie)
+                                    {{ $zadanie->title }}
+                            @endif
+
                         </span>
                     </h5>
                     <button id='closeModal' type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
@@ -90,7 +95,7 @@
                             <input type="text" wire:model="state.{{ $team->id }}.points" type="text" class="form-control" id="inputPassword" value="points">
                             </div>
 
-                            <div class="col-sm-7 justify-content-left">
+                            <div class="col-sm-7">
                             <label for="staticEmail" class="offset-sm-2 col-sm-10 col-form-label">{{ $team->teammembers }}</label>
                             </div>
 

@@ -11,15 +11,19 @@ class TasksList extends Component
     public $state = [];
     public $showEditForm = false;
     public $stage;
-    public $stage2;
+    public Stage $task;
     public $stageId;
     public $teams;
+    public $zadanie = null;
 
-    public function addPoints($id)
+    public function addPoints(Stage $stage)
     {
-        $stage2 = Stage::findOrFail($id);
+        $id = $stage->id;
+        $task = Stage::findOrFail($id);
+        // $this->zadanie= $task->toArray();
+        $this->zadanie= $task;
 
-        $this->stage2 = $stage2;
+        //dd($this->zadanie);
         $this->dispatchBrowserEvent('show-form');
     }
     public function points()
@@ -36,6 +40,8 @@ class TasksList extends Component
         $stages = Stage::orderBy('stagestate')->get();
         $teams = Team::all();
         $this->teams = $teams;
+
+
         return view('livewire.admin.result.tasks-list',[
             'stages' => $stages,
             'teams'  => $teams,

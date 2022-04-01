@@ -34,7 +34,6 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">L.p.</th>
-                                        <th scope="col">Kategoria</th>
                                         <th scope="col">Zadanie</th>
                                         <th scope="col">Opis</th>
                                         <th scope="col">Ilość punktów</th>
@@ -46,8 +45,7 @@
                                     @foreach ($stages as $stage)
                                     <tr>
                                         <td scope="col">{{ $loop->iteration }}</td>
-                                        <td scope="col">{{ $stage->category }}</td>
-                                        <td scope="col">{{ $stage->title }}</td>
+                                        <td scope="col"><img src="{{ asset('img/'.$stage->category) }}" class="img-fluid mr-2" style="height:30px" alt="logo"> {{ $stage->title }}</td>
                                         <td scope="col">{{ $stage->description }}</td>
                                         <td scope="col">{{ $stage->maxpoints }}</td>
                                         <td scope="col">{{ $stage->stagestate }}</td>
@@ -135,8 +133,8 @@
                             <label for="category" class="form-label">Kategoria</label>
                             <select class="form-control form-select" wire:model.defer="state.category" aria-label="Default select example">
                                 <option selected>Wybierz kategorię</option>
-                                <option value="kahoot.jpg">Kahoot</option>
-                                <option value="moodle.jpg">Moodle</option>
+                                <option value="kahoot.png">Kahoot</option>
+                                <option value="moodle.png">Moodle</option>
                             </select>
                             @error('category')
                             <div class="invalid-feedback">
