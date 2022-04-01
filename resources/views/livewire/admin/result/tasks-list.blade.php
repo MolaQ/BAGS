@@ -39,13 +39,17 @@
 
                                 </thead>
                                 <tbody>
-                                   @foreach($stages as $stage)
-                                   <tr>
+                                    @foreach($stages as $stage)
+                                    <tr>
                                         <td scope="col">{{ $loop->iteration}}</td>
                                         <td scope="col">{{ $stage->category}}</td>
-                                        <td scope="col">{{ $stage->title }}<BR><small>{{ $stage->description }}</small> </td>
-                                        <td scope="col"><a class="btn btn-light btn-sm disable">{{ $stage->stagestate }}  </a> </td>
-                                        <td scope="col"><a href="" class="btn btn-primary" wire:click.prevent="addPoints({{ $stage->id }})")><i class="fa fa-plus-circle mr"></i></a> </td>
+                                        <td scope="col">{{ $stage->title }}<BR><small>{{ $stage->description }}</small>
+                                        </td>
+                                        <td scope="col"><a class="btn btn-light btn-sm disable">{{ $stage->stagestate }}
+                                            </a> </td>
+                                        <td scope="col"><a href="" class="btn btn-primary"
+                                                wire:click.prevent="addPoints({{ $stage->id }})" )><i
+                                                    class="fa fa-plus-circle mr"></i></a> </td>
                                     </tr>
                                     @endforeach
 
@@ -78,7 +82,7 @@
 
                             Dodawanie punktacji do zadania:
                             @if($zadanie)
-                                    {{ $zadanie->title }}
+                            {{ $zadanie->title }}
                             @endif
 
                         </span>
@@ -87,27 +91,38 @@
                 </div>
 
                 <div class="modal-body">
-                    <form class="row g-3" autocomplete="off" >
+                    <form class="row g-3" autocomplete="off">
                         <div class="mb-1 row">
-                        @foreach($teams as $team)
+                            @if($zadanie)
+                            @foreach($teams as $team)
 
                             <div class="offset-sm-2 col-sm-2 d-flex mb-2">
-                            <input type="text" wire:model="state.{{ $team->id }}.points" type="text" class="form-control" id="inputPassword" value="points">
+                                <input type="text" wire:model="state.{{ $team->id }}" class="form-control">
+
                             </div>
 
                             <div class="col-sm-7">
-                            <label for="staticEmail" class="offset-sm-2 col-sm-10 col-form-label">{{ $team->teammembers }}</label>
+                                    <span py-1>{{ $team->teammembers }}</span>
                             </div>
 
-                         @endforeach
-            </div>
+                            @endforeach
+
+                            @endif
+
+
+
+
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
                             class="fa fa-times mr-1"></i> Anuluj</button>
-                    <button type="submit" wire:click.prevent="points" class="btn btn-primary"><i class="fa fa-save mr-1"></i>
+                            @if($zadanie)
+                    <button type="submit" wire:click.prevent="points({{ $zadanie->id }})" class="btn btn-primary"><i
+                            class="fa fa-save mr-1"></i>
                         <span>Dodaj punkty</span>
                     </button>
+                    @endif
                 </div>
                 </form>
             </div>

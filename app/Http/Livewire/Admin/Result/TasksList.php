@@ -12,7 +12,6 @@ class TasksList extends Component
     public $showEditForm = false;
     public $stage;
     public Stage $task;
-    public $stageId;
     public $teams;
     public $zadanie = null;
 
@@ -26,10 +25,11 @@ class TasksList extends Component
         //dd($this->zadanie);
         $this->dispatchBrowserEvent('show-form');
     }
-    public function points()
+    public function points($taskId)
     {
+        dd($taskId);
         $state = $this->state;
-
+        dd($state);
         //dd($state[2]['points']);
         dd(count ( $state ));
     }
