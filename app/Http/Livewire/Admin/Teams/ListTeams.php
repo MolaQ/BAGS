@@ -79,7 +79,8 @@ public function confirmTeamRemoval($teamId)
 
     public function render()
     {
-        $teams = Team::latest()->paginate(2);
+        // $teams = Team::latest()->paginate(2);
+        $teams = Team::all();
         return view('livewire.admin.teams.list-teams', [
             'teams' => $teams,
             ]);

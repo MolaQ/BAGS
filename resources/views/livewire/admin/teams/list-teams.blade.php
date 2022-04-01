@@ -23,7 +23,7 @@
 
         @if(session()->has('message'))
                 <div class="alert alert-info alert-dismissible fade show" id="alertbar" role="alert">
-                <strong> <i class="fa fa-check-circle mr-1"></i> Sukces!</strong> 
+                <strong> <i class="fa fa-check-circle mr-1"></i> Sukces!</strong>
                 {{ session('message') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -67,7 +67,6 @@
                             </table>
                         </div>
                         <div class="card-footer d-flex justify-content-end">
-                            {{ $teams->links() }}
                         </div>
                     </div>
 
@@ -88,8 +87,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
-                        @if($showEditForm)    
-                        <span>Edycja zespołu</span> 
+                        @if($showEditForm)
+                        <span>Edycja zespołu</span>
                         @else
                         <span>Dodawanie nowego zespołu </span>
                         @endif
@@ -145,8 +144,8 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times mr-1"></i> Anuluj</button>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save mr-1"></i>
-                    @if($showEditForm)    
-                        <span>Zapisz zmiany</span> 
+                    @if($showEditForm)
+                        <span>Zapisz zmiany</span>
                         @else
                         <span>Zapisz </span>
                     @endif
@@ -172,7 +171,7 @@
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times mr-1"></i> Anuluj</button>
                 <button type="button" wire:click.prevent="deleteTeam" class="btn btn-danger"><i class="fa fa-trash mr-1"></i>Usuń</button>
-                    
+
                 </div>
             </div>
         </div>

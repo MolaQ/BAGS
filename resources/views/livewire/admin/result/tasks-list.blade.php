@@ -75,31 +75,32 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
                         <span>
-                            Dodawanie punktacji do zadania:
+                            Dodawanie punktacji do zadania
                         </span>
                     </h5>
                     <button id='closeModal' type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
                 </div>
 
                 <div class="modal-body">
-                    <form class="row g-3">
-                        <div class="mb-3 row">
+                    <form class="row g-3" autocomplete="off" >
+                        <div class="mb-1 row">
                         @foreach($teams as $team)
 
-                            <div class="col-sm-7 d-flex justify-content-end">
-                            <label for="staticEmail" class="offset-sm-2 col-sm-10 col-form-label">{{ $team->teammembers }}</label>
-                            </div>
-                            <div class="col-sm-3 d-flex">
-                            <input type="text" wire:model.defer="state.title" lass="form-control" name="points" id="inputPassword">
+                            <div class="offset-sm-2 col-sm-2 d-flex mb-2">
+                            <input type="text" wire:model="state.{{ $team->id }}.points" type="text" class="form-control" id="inputPassword" value="points">
                             </div>
 
-                        @endforeach
+                            <div class="col-sm-7 justify-content-left">
+                            <label for="staticEmail" class="offset-sm-2 col-sm-10 col-form-label">{{ $team->teammembers }}</label>
+                            </div>
+
+                         @endforeach
             </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
                             class="fa fa-times mr-1"></i> Anuluj</button>
-                    <button type="submit" wire:click.prevent="test" class="btn btn-primary"><i class="fa fa-save mr-1"></i>
+                    <button type="submit" wire:click.prevent="points" class="btn btn-primary"><i class="fa fa-save mr-1"></i>
                         <span>Dodaj punkty</span>
                     </button>
                 </div>
