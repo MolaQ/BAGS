@@ -31,7 +31,6 @@
 
                                     <tr>
                                         <th scope="col">L.p.</th>
-                                        <th scope="col">Kategoria</th>
                                         <th scope="col">Zadanie</th>
                                         <th scope="col">Stan zadania</th>
                                         <th scope="col">Aktualizuj</th>
@@ -42,9 +41,7 @@
                                     @foreach($stages as $stage)
                                     <tr>
                                         <td scope="col">{{ $loop->iteration}}</td>
-                                        <td scope="col">{{ $stage->category}}</td>
-                                        <td scope="col">{{ $stage->title }}<BR><small>{{ $stage->description }}</small>
-                                        </td>
+                                        <td scope="col"><img src="{{ asset('img/'.$stage->category) }}" class="img-fluid mr-2" style="height:30px" alt="logo"> {{ $stage->title }}</td>
                                         <td scope="col"><a class="btn btn-light btn-sm disable">{{ $stage->stagestate }}
                                             </a> </td>
                                         <td scope="col"><a href="" class="btn btn-primary"

@@ -1,6 +1,7 @@
-@extends('main.app')
-@section('content')
+<x-main-layout>
+<div>
 
 Tabela
 
-@endsection
+</div>
+</x-main-layout>
