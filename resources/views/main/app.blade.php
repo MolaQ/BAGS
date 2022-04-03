@@ -7,13 +7,15 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <meta http-equiv="refresh" content="5">
+    <meta http-equiv="refresh" content="30">
     <title>BAGS 2022</title>
 
 
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('main/css/bootstrap.min.css') }}" rel="stylesheet">
+      <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
 
     <style>
         .bd-placeholder-img {
