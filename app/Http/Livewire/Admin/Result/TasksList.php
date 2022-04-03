@@ -12,6 +12,7 @@ class TasksList extends Component
     public $state = [];
     public $showEditForm = false;
     public $stage;
+    public $stageState;
     public Stage $task;
     public $teams;
     public $zadanie = null;
@@ -55,6 +56,13 @@ class TasksList extends Component
 
         }
 
+        $stageState = Stage::find($taskId);
+        if(($stageState->stagestate) != "Zakończone"){
+            if((sizeof($state))>0) $stageState->update(['stagestate' => 'W trakcie']);
+            if((sizeof($state))==10) $stageState->update(['stagestate' => 'Zakończone']);
+        }
+
+
         $this->dispatchBrowserEvent('hide-form', ['message' => 'Punkty zadania zaktualizowane pomyślnie']);
     }
 
@@ -62,7 +70,7 @@ class TasksList extends Component
     public function render()
     {
 
-        $stages = Stage::orderBy('stagestate')->get();
+        $stages = Stage::all();
         $teams = Team::all();
         $this->teams = $teams;
 

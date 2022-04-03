@@ -75,14 +75,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
-                        <span>
-
-                            Dodawanie punktacji do zadania:
+                        <div>
+                            <p>Dodawanie punktacji do zadania:</p>
                             @if($zadanie)
-                            {{ $zadanie->title }}
+                            <img src="{{ asset('img/'.$zadanie->category) }}" class="img-fluid mr-2" style="height:30px" alt="logo">{{ $zadanie->title }} (Max. Points{{ $zadanie->maxpoints }})
                             @endif
 
-                        </span>
+                        </div>
                     </h5>
                     <button id='closeModal' type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
                 </div>
@@ -105,9 +104,6 @@
                             @endforeach
 
                             @endif
-
-
-
 
                         </div>
                 </div>

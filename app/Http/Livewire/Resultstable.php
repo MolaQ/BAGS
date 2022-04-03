@@ -34,28 +34,23 @@ class Resultstable extends Component
         };
 
 
+$stageForPosition = Stage::all();
+foreach($stageForPosition as $s)
+{
+    $poz = 0;
+    $position = Result::where('stage_id','<=', $s->id )
+    ->selectRaw("team_id")
+    ->selectRaw("sum(points) as sum")
+    ->groupBy('team_id')
+    ->orderBy('sum', 'DESC')
+    ->get();
+    foreach($position as $p)
+    {
+        $poz++;
+        $positionTable[$s->id][$p->team_id]=$poz;
+    };
 
-        // $leagues = League::where('user_id','<>',1)
-        // ->where('season_id', $sid)
-        // ->where('leaguename_id', $lid)
-        // ->selectRaw("user_id")
-        // ->selectRaw("SUM(m) as total_m")
-        // ->selectRaw("SUM(p) as total_p")
-        // ->selectRaw("SUM(b) as total_b")
-        // ->selectRaw("SUM(gf) as total_gf")
-        // ->selectRaw("SUM(ga) as total_ga")
-        // ->selectRaw("SUM(w) as total_w")
-        // ->selectRaw("SUM(d) as total_d")
-        // ->selectRaw("SUM(l) as total_l")
-        // ->groupBy('user_id')
-        // ->orderBy('total_p', 'DESC')
-        // ->orderBy('total_b', 'DESC')
-        // ->orderBy('total_gf', 'DESC')
-        // ->orderBy('total_w', 'DESC')
-        // ->get();
-
-
-// dd($punkty);
+};
 
         $results = Result::
         selectRaw("team_id")
@@ -63,11 +58,28 @@ class Resultstable extends Component
         ->groupBy('team_id')
         ->orderBy('sum', 'DESC')
         ->get();
+
+        $stages = Stage::all();
+        $stageCategory = $stages->pluck('category')->toArray();
+        $closeStageNumber=0;
+        foreach($stages as $stage)
+        {
+            $maxStagePts[$stage->id]=$stage->maxpoints;
+            if ($stage->stagestate=="Zakończone")  $closeStageState[$stage->id]=true;
+            else $closeStageState[$stage->id]=false;
+            if ($closeStageState[$stage->id]) $closeStageNumber++;
+        }
+
         return view('livewire.resultstable',[
             'results' => $results,
             'punkty' => $punkty,
             'suma' => $suma,
             'ilezadan' => $ilezadan,
+            'stageCategory' => $stageCategory,
+            'closeStageState' => $closeStageState,
+            'maxStagePts' => $maxStagePts,
+            'positionTable' => $positionTable,
+            'closeStageNumber' => $closeStageNumber,
         ])->layout('main.app');
     }
 }
