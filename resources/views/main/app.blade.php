@@ -45,7 +45,7 @@
     <!-- Begin page content -->
     <main class="flex-shrink-0">
         <div class="container">
-
+            <br><br>
 {{ $slot }}
 
 
