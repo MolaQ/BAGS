@@ -16,4 +16,10 @@ class Stage extends Model
         'maxpoints',
         'stagestate',
     ];
+
+    public function results()
+    {
+    return $this->hasMany('App\Models\Result');
+    }
+
 }

@@ -19,5 +19,9 @@ class Team extends Model
         'created_at',
         'updated_at',
     ];
+    public function results()
+{
+    return $this->hasMany('App\Models\Result');
+}
 
 }

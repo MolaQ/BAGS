@@ -15,4 +15,14 @@ class Result extends Model
         'points',
     ];
 
+    public function team()
+    {
+        return $this->belongsTo('App\Models\Team');
+    }
+    public function stage()
+    {
+        return $this->belongsTo('App\Models\Stage');
+    }
+
+
 }

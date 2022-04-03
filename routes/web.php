@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\PageController;
 use App\Http\Livewire\Admin\Result\TasksList;
 use App\Http\Livewire\Admin\Stages\ListStages;
 use App\Http\Livewire\Admin\Teams\ListTeams;
 use App\Http\Livewire\Admin\Users\ListUsers;
+use App\Http\Livewire\Resultstable;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', PageController::class)->name('home');
+Route::get('/', Resultstable::class)->name('home');
 Route::get('/admin/dashboard', DashboardController::class)->name('admin.dashboard');
 Route::get('/admin/users', ListUsers::class)->name('admin.users');
 Route::get('/admin/teams', ListTeams::class)->name('admin.teams');

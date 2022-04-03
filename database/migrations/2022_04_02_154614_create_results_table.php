@@ -17,8 +17,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('stage_id');
             $table->unsignedBigInteger('team_id');
-            $table->float('points');
+            $table->bigInteger('points');
             $table->timestamps();
+
+            $table->foreign('team_id')->references('id')->on('teams');
+            $table->foreign('stage_id')->references('id')->on('stages');
         });
     }
 

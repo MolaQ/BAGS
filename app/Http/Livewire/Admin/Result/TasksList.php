@@ -47,7 +47,7 @@ class TasksList extends Component
                     ['stage_id' => $taskId, 'team_id' => $team->id],
                     ['stage_id' => $taskId,
                     'team_id' => $team->id,
-                    'points' => $tablica[0][$team->id]
+                    'points' => $tablica[0][$team->id]*100
                 ]);
 
             };
