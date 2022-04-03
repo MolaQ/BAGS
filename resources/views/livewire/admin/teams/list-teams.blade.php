@@ -111,11 +111,11 @@
                             <label for="classname" class="form-label">Wybierz klasę</label>
                             <select class="form-control form-select" wire:model.defer="state.classname" aria-label="Default select example">
                                 <option selected>-- Klasa --</option>
-                                <option value="3Kg">Klasa 3Kg</option>
-                                <option value="3R">Klasa 3R</option>
-                                <option value="4I">Klasa 4I</option>
-                                <option value="4K">Klasa 4K</option>
-                                <option value="4R">Klasa 4R</option>
+                                <option value="3k">Klasa 3Kg</option>
+                                <option value="3r">Klasa 3R</option>
+                                <option value="4i">Klasa 4I</option>
+                                <option value="4k">Klasa 4K</option>
+                                <option value="4r">Klasa 4R</option>
                             </select>
                             @error('classname')
                             <div class="invalid-feedback">
@@ -128,8 +128,8 @@
                             <label for="group" class="form-label">Grupa</label>
                             <select class="form-control form-select" wire:model.defer="state.group" aria-label="Default select example">
                                 <option selected>-- Klasa --</option>
-                                <option value="Grupa I">Grupa I</option>
-                                <option value="Grupa II">Grupa II</option>
+                                <option value="1">Grupa I</option>
+                                <option value="2">Grupa II</option>
                             </select>
                             @error('group')
                             <div class="invalid-feedback">
