@@ -135,6 +135,10 @@
                                 <option selected>Wybierz kategorię</option>
                                 <option value="kahoot.png">Kahoot</option>
                                 <option value="moodle.png">Moodle</option>
+                                <option value="mysql.png">KMySQL</option>
+                                <option value="php.png">PHP</option>
+                                <option value="inkscape.png">Inkscape</option>
+
                             </select>
                             @error('category')
                             <div class="invalid-feedback">
