@@ -70,6 +70,7 @@ class TasksList extends Component
     public function render()
     {
 
+        $this->emit('refreshResultPage');
         $stages = Stage::all();
         $teams = Team::all();
         $this->teams = $teams;

@@ -4,12 +4,14 @@ namespace App\Http\Livewire;
 
 use App\Models\Result;
 use App\Models\Stage;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Resultstable extends Component
 {
-    public function render()
+    protected $Listeners = ['refreshResultPage'=>'$refresh'];
+
+    public function render() :View
     {
 
         $stageIds = Stage::all()->pluck('id')->toArray();
